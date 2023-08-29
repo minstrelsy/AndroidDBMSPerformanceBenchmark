@@ -54,24 +54,24 @@ dependencies {
     // want to benchmark to a library module:
     // https://developer.android.com/studio/projects/android-library#Convert
 
-    androidTestImplementation "androidx.test:runner:$versions.testRunner"
-    androidTestUtil "androidx.test:orchestrator:$versions.testOrchestrator"
-    androidTestImplementation "androidx.test.ext:junit:$versions.junitExt"
-    androidTestImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.benchmark:benchmark-junit4:$versions.junit4"
+    androidTestImplementation "androidx.test:runner:1.2.0"
+    androidTestUtil "androidx.test:orchestrator:1.2.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.4"
+    androidTestImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.benchmark:benchmark-junit4:4.13.2"
 
     // Room
-    androidTestImplementation "androidx.room:room-runtime:$versions.room"
-    androidTestImplementation "androidx.room:room-ktx:$versions.room"
-    kaptAndroidTest "androidx.room:room-compiler:$versions.room"
-    testImplementation "androidx.room:room-testing:$versions.room"
+    androidTestImplementation "androidx.room:room-runtime:2.2.5"
+    androidTestImplementation "androidx.room:room-ktx:2.2.5"
+    kaptAndroidTest "androidx.room:room-compiler:2.2.5"
+    testImplementation "androidx.room:room-testing:2.2.5"
 
     // DBFlow
-    kaptAndroidTest "com.github.Raizlabs.DBFlow:dbflow-processor:$versions.dbflow"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-core:$versions.dbflow"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow:$versions.dbflow"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$versions.dbflow"
+    kaptAndroidTest "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
+    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-core:4.2.4"
+    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow:4.2.4"
+    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:4.2.4"
 
     // GreenDAO
-    androidTestImplementation "org.greenrobot:greendao:$versions.greendao"
+    androidTestImplementation "org.greenrobot:greendao:3.3.0"
 }

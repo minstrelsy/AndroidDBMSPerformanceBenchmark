@@ -1,27 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
 
-    ext.versions = [
-            'gradle'                         : '4.1.3',
-            'gradlePlugin'                   : "1.0.0",
-            'kotlin'                         : "1.6.0",
-            'testRunner'                     : "1.2.0",
-            'junit'                          : "4.12",
-            'junitExt'                       : "1.1.1",
-            'junit4'                         : "1.0.0",
-            'testOrchestrator'               : "1.2.0",
-            'appCompat'                      : "1.1.0",
-            'coreKtx'                        : "1.2.0",
-            'constraintLayout'               : "1.1.3",
-            'espressoCore'                   : "3.2.0",
-            'gson'                           : "2.8.6",
-            'room'                           : "2.2.5",
-            'dbflow'                         : "4.2.4",
-            'greendao'                       : "3.3.0",
-            'realm'                          : "6.0.2",
-            'objectBox'                      : "3.7.0"
-    ]
-
     repositories {
         google()
         jcenter()
@@ -29,13 +8,13 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$versions.gradle"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath "androidx.benchmark:benchmark-gradle-plugin:$versions.gradlePlugin"
+        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"
+        classpath "androidx.benchmark:benchmark-gradle-plugin:1.0.0"
 
-        classpath "org.greenrobot:greendao-gradle-plugin:$versions.greendao"
-        classpath "io.realm:realm-gradle-plugin:$versions.realm"
-        classpath "io.objectbox:objectbox-gradle-plugin:$versions.objectBox"
+        classpath "org.greenrobot:greendao-gradle-plugin:3.3.0"
+        classpath "io.realm:realm-gradle-plugin:6.0.2"
+        classpath "io.objectbox:objectbox-gradle-plugin:3.7.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

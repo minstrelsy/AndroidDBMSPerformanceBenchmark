@@ -52,20 +52,20 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     // GSON
-    implementation "com.google.code.gson:gson:$versions.gson"
+    implementation "com.google.code.gson:gson:2.8.5"
 
     // Room
-    implementation "androidx.room:room-runtime:$versions.room"
-    implementation "androidx.room:room-ktx:$versions.room"
-    kapt "androidx.room:room-compiler:$versions.room"
-    implementation "androidx.room:room-testing:$versions.room"
+    implementation "androidx.room:room-runtime:2.2.5"
+    implementation "androidx.room:room-ktx:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
+    implementation "androidx.room:room-testing:2.2.5"
 
     // DBFlow
-    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$versions.dbflow"
-    implementation "com.github.Raizlabs.DBFlow:dbflow-core:$versions.dbflow"
-    implementation "com.github.Raizlabs.DBFlow:dbflow:$versions.dbflow"
-    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$versions.dbflow"
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:4.2.4"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:4.2.4"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:4.2.4"
 
     // GreenDAO
-    implementation "org.greenrobot:greendao:$versions.greendao"
+    implementation "org.greenrobot:greendao:3.3.0"
 }
