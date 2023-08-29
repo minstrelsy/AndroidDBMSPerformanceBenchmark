@@ -15,8 +15,6 @@ android {
         //applicationId "com.luja93.dbms_performance_benchmark"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
