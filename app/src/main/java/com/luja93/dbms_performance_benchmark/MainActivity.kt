@@ -3,7 +3,7 @@ package com.luja93.dbms_performance_benchmark
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.luja93.dbms_performance_benchmark.sqlite.SQLiteHelpers
+import com.luja93.dbms_performance_benchmark.room.RoomHelpers
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         /**
          * Change the helpers object to any of defined DBMS helpers to try out the implementations.
          */
-        val helpers = SQLiteHelpers
+        val helpers = RoomHelpers
 
         /**
          * The following flow will guide you through the implemented DBMS operations. Feel free to
