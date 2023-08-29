@@ -54,8 +54,6 @@ dependencies {
     // want to benchmark to a library module:
     // https://developer.android.com/studio/projects/android-library#Convert
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-
     androidTestImplementation "androidx.test:runner:$versions.testRunner"
     androidTestUtil "androidx.test:orchestrator:$versions.testOrchestrator"
     androidTestImplementation "androidx.test.ext:junit:$versions.junitExt"
