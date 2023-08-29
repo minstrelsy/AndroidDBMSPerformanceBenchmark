@@ -1,6 +1,9 @@
+plugins {
+    id 'kotlin-android-extensions'
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 apply plugin: 'org.greenrobot.greendao'
@@ -8,13 +11,11 @@ apply plugin: 'realm-android'
 apply plugin: 'io.objectbox'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdk 32
 
     defaultConfig {
-        //applicationId "com.luja93.dbms_performance_benchmark"
-        minSdkVersion 24
-        targetSdkVersion 29
+        minSdk 24
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +38,9 @@ android {
         }
     }
 
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
