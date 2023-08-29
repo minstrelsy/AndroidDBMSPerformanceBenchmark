@@ -54,17 +54,17 @@ dependencies {
     // want to benchmark to a library module:
     // https://developer.android.com/studio/projects/android-library#Convert
 
-    androidTestImplementation "androidx.test:runner:1.2.0"
-    androidTestUtil "androidx.test:orchestrator:1.2.0"
-    androidTestImplementation "androidx.test.ext:junit:1.1.4"
+    androidTestImplementation "androidx.test:runner:1.5.2"
+    androidTestUtil "androidx.test:orchestrator:1.4.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
     androidTestImplementation "junit:junit:4.13.2"
     androidTestImplementation "androidx.benchmark:benchmark-junit4:4.13.2"
 
     // Room
-    androidTestImplementation "androidx.room:room-runtime:2.2.5"
-    androidTestImplementation "androidx.room:room-ktx:2.2.5"
-    kaptAndroidTest "androidx.room:room-compiler:2.2.5"
-    testImplementation "androidx.room:room-testing:2.2.5"
+    androidTestImplementation "androidx.room:room-runtime:2.5.2"
+    androidTestImplementation "androidx.room:room-ktx:2.5.2"
+    kaptAndroidTest "androidx.room:room-compiler:2.5.2"
+    testImplementation "androidx.room:room-testing:2.5.2"
 
     // DBFlow
     kaptAndroidTest "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
