@@ -64,13 +64,4 @@ dependencies {
     androidTestImplementation "androidx.room:room-ktx:2.5.2"
     kaptAndroidTest "androidx.room:room-compiler:2.5.2"
     testImplementation "androidx.room:room-testing:2.5.2"
-
-    // DBFlow
-    kaptAndroidTest "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-core:4.2.4"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow:4.2.4"
-    androidTestImplementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:4.2.4"
-
-    // GreenDAO
-    androidTestImplementation "org.greenrobot:greendao:3.3.0"
 }

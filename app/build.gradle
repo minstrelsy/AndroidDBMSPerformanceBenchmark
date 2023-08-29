@@ -5,7 +5,6 @@ plugins {
     id 'org.jetbrains.kotlin.kapt'
 }
 
-apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'realm-android'
 apply plugin: 'io.objectbox'
 
@@ -62,13 +61,4 @@ dependencies {
     implementation "androidx.room:room-ktx:2.5.2"
     kapt "androidx.room:room-compiler:2.5.2"
     implementation "androidx.room:room-testing:2.5.2"
-
-    // DBFlow
-    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
-    implementation "com.github.Raizlabs.DBFlow:dbflow-core:4.2.4"
-    implementation "com.github.Raizlabs.DBFlow:dbflow:4.2.4"
-    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:4.2.4"
-
-    // GreenDAO
-    implementation "org.greenrobot:greendao:3.3.0"
 }

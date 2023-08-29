@@ -12,7 +12,6 @@ buildscript {
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
         classpath "androidx.benchmark:benchmark-gradle-plugin:1.1.1"
 
-        classpath "org.greenrobot:greendao-gradle-plugin:3.3.0"
         classpath "io.realm:realm-gradle-plugin:6.0.2"
         classpath "io.objectbox:objectbox-gradle-plugin:3.7.0"
 
