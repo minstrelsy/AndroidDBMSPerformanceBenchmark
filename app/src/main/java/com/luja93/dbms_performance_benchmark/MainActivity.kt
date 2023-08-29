@@ -23,31 +23,42 @@ class MainActivity : AppCompatActivity() {
          * <code>apply plugin: 'com.android.application'</code> and comment out the
          * <code>androidTestImplementation project(":app")</code> from build.gradle(DBMS-benchmark).
          */
-        val db = helpers.buildDb(this)
-        helpers.loadCities(this)
-        val cities = helpers.getCities(50)
 
-        Log.d("1. City #last - init load: ", cities[cities.size - 1].toString())
+        val startTime = System.currentTimeMillis()
+
+        val db = helpers.buildDb(this)
+        val buildTime = System.currentTimeMillis()
+
+        helpers.loadCities(this)
+        val cities = helpers.getCities(10000)
+
+        val createTime = System.currentTimeMillis();
+        Log.d(TAG, "Create time: " + (buildTime - startTime).toString())
 
         helpers.deleteCities(db)
         helpers.insertCities(db, cities)
+
+        val insertTime = System.currentTimeMillis();
+        Log.d(TAG, "Insert time: " + (insertTime - createTime).toString())
+
         val citiesFromDb = helpers.readCities(db)
 
-        Log.d("2. City #last - DB: ", citiesFromDb[citiesFromDb.size - 1].toString())
+        val readTime = System.currentTimeMillis();
+        Log.d(TAG, "Read time: " + (readTime - insertTime).toString())
 
         val citiesUpdated = cities.map { it.name = it.name + "_updated"; it }
         helpers.updateCities(db, citiesUpdated)
-        val citiesFromDbUpdated = helpers.readCities(db)
 
-        Log.d(
-            "3. City #last - DB Updated: ",
-            citiesFromDbUpdated[citiesFromDbUpdated.size - 1].toString()
-        )
+        val updateTime = System.currentTimeMillis();
+        Log.d(TAG, "Update time: " + (updateTime - readTime).toString())
 
         helpers.deleteCities(db)
-        val citiesAfterDeletion = helpers.readCities(db)
 
-        Log.d("4. City #size - DB deletion: ", citiesAfterDeletion.size.toString())
+        val deleteTime = System.currentTimeMillis();
+        Log.d(TAG, "Delete time: " + (deleteTime - updateTime).toString())
     }
 
+    companion object {
+        private const val TAG = "MainActivity"
+    }
 }
