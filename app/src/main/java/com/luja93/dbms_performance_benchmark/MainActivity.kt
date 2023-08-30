@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.luja93.dbms_performance_benchmark.room.RoomHelpers
 import java.util.Arrays
+import java.util.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -61,10 +62,18 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Delete time: " + (deleteTime - updateTime).toString())
 
         val gson = Gson()
-        val floatList = Arrays.asList(1.0f, 2.0f, 3.0f)
-        val jsonOutput = gson.toJson(floatList)
+        val random = Random()
 
-        Log.d(TAG, "json output - " + jsonOutput)
+        for (i in 1..10) {
+            val vector = Vector ()
+            vector.name = i.toString()
+            for (v in 1..512) {
+                vector.vector.add(random.nextFloat())
+            }
+
+            val output = gson.toJson(vector)
+            Log.d(TAG, "output $i - $output")
+        }
     }
 
     companion object {
