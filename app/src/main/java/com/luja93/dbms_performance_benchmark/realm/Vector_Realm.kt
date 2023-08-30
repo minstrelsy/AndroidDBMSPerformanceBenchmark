@@ -1,6 +1,7 @@
 package com.luja93.dbms_performance_benchmark.realm
 
 import com.google.gson.annotations.SerializedName
+import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
@@ -17,31 +18,10 @@ import io.realm.annotations.PrimaryKey
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-open class Vector_Realm : RealmObject {
-
+open class Vector_Realm : RealmObject() {
     @PrimaryKey
-    @SerializedName("id")
-    var id: Long = 0L
-    @SerializedName("uid")
-    var uid: Long = 0L
-    @SerializedName("lat")
-    var lat: Float = 0f
-    @SerializedName("lon")
-    var lon: Float = 0f
     @SerializedName("name")
     var name: String = ""
-    @SerializedName("place")
-    var place: String = ""
-
-    constructor()
-
-    constructor(id: Long, uid: Long, lat: Float, lon: Float, name: String, place: String) {
-        this.id = id
-        this.uid = uid
-        this.lat = lat
-        this.lon = lon
-        this.name = name
-        this.place = place
-    }
-
+    @SerializedName("vector")
+    var vector: RealmList<Float> = RealmList()
 }

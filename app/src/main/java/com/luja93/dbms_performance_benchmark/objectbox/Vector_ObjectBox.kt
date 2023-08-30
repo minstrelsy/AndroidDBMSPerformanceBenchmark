@@ -19,17 +19,8 @@ import io.objectbox.annotation.Id
  */
 @Entity
 data class Vector_ObjectBox(
-    @Id(assignable = true)
-    @SerializedName("id")
-    var id: Long = 0L,
-    @SerializedName("uid")
-    var uid: Long = 0L,
-    @SerializedName("lat")
-    var lat: Float = 0f,
-    @SerializedName("lon")
-    var lon: Float = 0f,
     @SerializedName("name")
     var name: String = "",
-    @SerializedName("place")
-    var place: String = ""
+    @SerializedName("vector")
+    var vector: List<Float> = ArrayList()
 )

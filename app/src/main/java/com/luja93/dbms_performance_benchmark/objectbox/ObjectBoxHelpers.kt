@@ -1,8 +1,13 @@
 package com.luja93.dbms_performance_benchmark.objectbox
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.luja93.dbms_performance_benchmark.BaseHelpers
+import com.luja93.dbms_performance_benchmark.ListFloatDeserializer
+import com.luja93.dbms_performance_benchmark.R
 import io.objectbox.BoxStore
+
 
 /**
  * \brief Helper class for initializing, loading and performing ObjectBox queries.
@@ -27,7 +32,24 @@ object ObjectBoxHelpers : BaseHelpers<Vector_ObjectBox, BoxStore>() {
     }
 
     override fun loadVectors(context: Context) {
-        loadVectorsData<List<Vector_ObjectBox>>(context)
+        val bufferReader = context.resources.openRawResource(R.raw.data).bufferedReader()
+
+        var vectorString = bufferReader.readLine()
+
+        val gson = GsonBuilder().registerTypeAdapter(
+            List::class.java,
+            ListFloatDeserializer()
+        ).create()
+
+        while (vectorString != null) {
+            val vector = gson.fromJson<Vector_ObjectBox>(vectorString, Vector_ObjectBox::class.java)
+            vectors.add(vector)
+            vectorString = bufferReader.readLine()
+        }
+
+        isVectorsLoaded = true
+
+        bufferReader.close()
     }
     //endregion
 

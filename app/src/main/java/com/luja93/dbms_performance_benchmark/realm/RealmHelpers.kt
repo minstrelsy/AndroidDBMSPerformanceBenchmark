@@ -1,7 +1,13 @@
 package com.luja93.dbms_performance_benchmark.realm
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.luja93.dbms_performance_benchmark.BaseHelpers
+import com.luja93.dbms_performance_benchmark.ListFloatDeserializer
+import com.luja93.dbms_performance_benchmark.R
+import com.luja93.dbms_performance_benchmark.room.RoomHelpers
+import com.luja93.dbms_performance_benchmark.room.Vector_Room
 import io.realm.Realm
 
 /**
@@ -27,7 +33,24 @@ object RealmHelpers : BaseHelpers<Vector_Realm, Realm>() {
     }
 
     override fun loadVectors(context: Context) {
-        loadVectorsData<List<Vector_Realm>>(context)
+        val bufferReader = context.resources.openRawResource(R.raw.data).bufferedReader()
+
+        var vectorString = bufferReader.readLine()
+
+        val gson = GsonBuilder().registerTypeAdapter(
+            List::class.java,
+            ListFloatDeserializer()
+        ).create()
+
+        while (vectorString != null) {
+            val vector = gson.fromJson<Vector_Realm>(vectorString, Vector_Realm::class.java)
+            vectors.add(vector)
+            vectorString = bufferReader.readLine()
+        }
+
+        isVectorsLoaded = true
+
+        bufferReader.close()
     }
     //endregion
 

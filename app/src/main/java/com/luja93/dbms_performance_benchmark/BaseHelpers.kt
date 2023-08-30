@@ -45,43 +45,6 @@ abstract class BaseHelpers<Vector, Database> {
     }
     //endregion
 
-
-    //region PROTECTED FUNCTIONS
-    /**
-     * Loads [Assets.VECTORS] and parses them to a list of [Vector].
-     *
-     * @param context [Context].
-     *
-     * @throws ClassCastException if the specified type [VectorList] does not match the [vectors] type.
-     */
-    protected inline fun <reified VectorList> loadVectorsData(context: Context) {
-        if (isVectorsLoaded) return
-
-        if (vectors !is VectorList)
-            throw ClassCastException(
-                "The specified type is not correct. Should be the list of " +
-                        "related vectors."
-            )
-
-        val fileReader: Reader = BufferedReader(
-            InputStreamReader(context.assets.open(Assets.VECTORS))
-        )
-
-        @Suppress("UNCHECKED_CAST")
-        vectors.addAll(
-            gson.fromJson<VectorList>(
-                fileReader,
-                object : TypeToken<VectorList>() {}.type
-            ) as List<Vector>
-        )
-
-        isVectorsLoaded = true
-
-        fileReader.close()
-    }
-    //endregion
-
-
     //region SETUP
     /**
      * Use this function to create and return an instance of [Database].
