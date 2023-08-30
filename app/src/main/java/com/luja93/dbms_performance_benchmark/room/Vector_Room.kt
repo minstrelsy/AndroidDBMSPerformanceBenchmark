@@ -20,16 +20,8 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Vector_Room(
     @PrimaryKey
-    @SerializedName("id")
-    val id: Long,
-    @SerializedName("uid")
-    var uid: Long,
-    @SerializedName("lat")
-    var lat: Float,
-    @SerializedName("lon")
-    var lon: Float,
     @SerializedName("name")
     var name: String,
-    @SerializedName("place")
-    var place: String
+    @SerializedName("vector")
+    var vector: List<Float>,
 )

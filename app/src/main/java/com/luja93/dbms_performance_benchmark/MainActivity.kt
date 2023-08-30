@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //createSampleData()
+
         /**
          * Change the helpers object to any of defined DBMS helpers to try out the implementations.
          */
@@ -35,24 +37,24 @@ class MainActivity : AppCompatActivity() {
         val buildTime = System.currentTimeMillis()
 
         helpers.loadVectors(this)
-        val cities = helpers.getVectors(10000)
+        val vectors = helpers.getVectors(10000)
 
         val createTime = System.currentTimeMillis();
         Log.d(TAG, "Create time: " + (buildTime - startTime).toString())
 
         helpers.deleteVectors(db)
-        helpers.insertVectors(db, cities)
+        helpers.insertVectors(db, vectors)
 
         val insertTime = System.currentTimeMillis();
         Log.d(TAG, "Insert time: " + (insertTime - createTime).toString())
 
-        val citiesFromDb = helpers.readVectors(db)
+        val vectorsDb = helpers.readVectors(db)
 
         val readTime = System.currentTimeMillis();
         Log.d(TAG, "Read time: " + (readTime - insertTime).toString())
 
-        val citiesUpdated = cities.map { it.name = it.name + "_updated"; it }
-        helpers.updateVectors(db, citiesUpdated)
+        val vectorsUpdated = vectors.map { it.name = it.name + "_updated"; it }
+        helpers.updateVectors(db, vectorsUpdated)
 
         val updateTime = System.currentTimeMillis();
         Log.d(TAG, "Update time: " + (updateTime - readTime).toString())
@@ -61,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         val deleteTime = System.currentTimeMillis();
         Log.d(TAG, "Delete time: " + (deleteTime - updateTime).toString())
-
-        createSampleData()
     }
 
     fun createSampleData() {
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         val dataFile = File(dataFilePath)
         val fos = FileOutputStream(dataFile)
 
-        for (i in 1..20000) {
+        for (i in 1..10000) {
             val vector = Vector ()
             vector.name = i.toString()
             for (v in 1..512) {

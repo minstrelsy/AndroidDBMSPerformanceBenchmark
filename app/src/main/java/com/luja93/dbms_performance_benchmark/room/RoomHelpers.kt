@@ -2,7 +2,9 @@ package com.luja93.dbms_performance_benchmark.room
 
 import android.content.Context
 import androidx.room.Room
+import com.google.gson.Gson
 import com.luja93.dbms_performance_benchmark.BaseHelpers
+import com.luja93.dbms_performance_benchmark.R
 
 /**
  * \brief Helper class for initializing, loading and performing Room queries.
@@ -27,7 +29,19 @@ object RoomHelpers : BaseHelpers<Vector_Room, RoomDB>() {
     }
 
     override fun loadVectors(context: Context) {
-        loadVectorsData<List<Vector_Room>>(context)
+        val bufferReader = context.resources.openRawResource(R.raw.data).bufferedReader()
+
+        var vectorString = bufferReader.readLine()
+
+        while (vectorString != null) {
+            val vector = Gson().fromJson<Vector_Room>(vectorString, Vector_Room::class.java)
+            vectors.add(vector)
+            vectorString = bufferReader.readLine()
+        }
+
+        isVectorsLoaded = true
+
+        bufferReader.close()
     }
     //endregion
 

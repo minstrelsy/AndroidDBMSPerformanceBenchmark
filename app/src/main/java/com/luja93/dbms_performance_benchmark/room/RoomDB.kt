@@ -2,6 +2,7 @@ package com.luja93.dbms_performance_benchmark.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 /**
  * \brief Base Room database class.
@@ -20,6 +21,7 @@ import androidx.room.RoomDatabase
     version = 1,
     entities = [Vector_Room::class]
 )
+@TypeConverters(Converters::class)
 abstract class RoomDB : RoomDatabase() {
 
     abstract fun vectorDao(): VectorDao

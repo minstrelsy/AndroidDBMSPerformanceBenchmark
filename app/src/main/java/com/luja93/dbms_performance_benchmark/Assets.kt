@@ -15,6 +15,6 @@ package com.luja93.dbms_performance_benchmark
  */
 object Assets {
 
-    const val VECTORS = "towns-europe-JSON-format.json"
+    const val VECTORS = "data.json"
 
 }
