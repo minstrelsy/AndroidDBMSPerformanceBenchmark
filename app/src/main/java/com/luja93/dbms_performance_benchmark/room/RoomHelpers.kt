@@ -2,8 +2,9 @@ package com.luja93.dbms_performance_benchmark.room
 
 import android.content.Context
 import androidx.room.Room
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.luja93.dbms_performance_benchmark.BaseHelpers
+import com.luja93.dbms_performance_benchmark.ListFloatDeserializer
 import com.luja93.dbms_performance_benchmark.R
 
 /**
@@ -33,8 +34,13 @@ object RoomHelpers : BaseHelpers<Vector_Room, RoomDB>() {
 
         var vectorString = bufferReader.readLine()
 
+        val gson = GsonBuilder().registerTypeAdapter(
+            List::class.java,
+            ListFloatDeserializer()
+        ).create()
+
         while (vectorString != null) {
-            val vector = Gson().fromJson<Vector_Room>(vectorString, Vector_Room::class.java)
+            val vector = gson.fromJson<Vector_Room>(vectorString, Vector_Room::class.java)
             vectors.add(vector)
             vectorString = bufferReader.readLine()
         }

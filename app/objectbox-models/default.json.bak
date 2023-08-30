@@ -4,38 +4,38 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:959632331862110228",
-      "lastPropertyId": "6:2020546469875278623",
-      "name": "City_ObjectBox",
+      "id": "2:7680854160936792885",
+      "lastPropertyId": "6:8941180478467706446",
+      "name": "Vector_ObjectBox",
       "properties": [
         {
-          "id": "1:4369879803661628225",
+          "id": "1:466628780222186715",
           "name": "id",
           "type": 6,
           "flags": 129
         },
         {
-          "id": "2:2953544674441796122",
+          "id": "2:5117569865153384301",
           "name": "uid",
           "type": 6
         },
         {
-          "id": "3:341980782322004679",
+          "id": "3:8008111199136234311",
           "name": "lat",
           "type": 7
         },
         {
-          "id": "4:3731700009133580793",
+          "id": "4:6491974626924936263",
           "name": "lon",
           "type": 7
         },
         {
-          "id": "5:8884486155130090941",
+          "id": "5:4103656118298106345",
           "name": "name",
           "type": 9
         },
         {
-          "id": "6:2020546469875278623",
+          "id": "6:8941180478467706446",
           "name": "place",
           "type": 9
         }
@@ -43,15 +43,24 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:959632331862110228",
+  "lastEntityId": "2:7680854160936792885",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    959632331862110228
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    4369879803661628225,
+    2953544674441796122,
+    341980782322004679,
+    3731700009133580793,
+    8884486155130090941,
+    2020546469875278623
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

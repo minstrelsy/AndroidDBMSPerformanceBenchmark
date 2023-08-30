@@ -20,6 +20,8 @@ import io.realm.annotations.PrimaryKey
  */
 open class Vector_Realm : RealmObject() {
     @PrimaryKey
+    @SerializedName("id")
+    var id: Long = 0
     @SerializedName("name")
     var name: String = ""
     @SerializedName("vector")

@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         for (i in 1..10000) {
             val vector = Vector ()
+            vector.id = i.toLong()
             vector.name = i.toString()
             for (v in 1..512) {
                 vector.vector.add(random.nextFloat())

@@ -2,6 +2,7 @@ package com.luja93.dbms_performance_benchmark.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -20,6 +21,8 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Vector_Room(
     @PrimaryKey
+    @SerializedName("id")
+    var id: Long = 0,
     @SerializedName("name")
     var name: String,
     @SerializedName("vector")

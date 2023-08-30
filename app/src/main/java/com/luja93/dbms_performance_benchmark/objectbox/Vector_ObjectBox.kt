@@ -19,8 +19,11 @@ import io.objectbox.annotation.Id
  */
 @Entity
 data class Vector_ObjectBox(
+    @Id(assignable = true)
+    @SerializedName("id")
+    var id: Long = 0,
     @SerializedName("name")
     var name: String = "",
     @SerializedName("vector")
-    var vector: List<Float> = ArrayList()
+    var vector: FloatArray = FloatArray(512)
 )
