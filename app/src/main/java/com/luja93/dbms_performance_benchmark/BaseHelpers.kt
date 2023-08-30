@@ -21,61 +21,61 @@ import java.io.Reader
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-abstract class BaseHelpers<City, Database> {
+abstract class BaseHelpers<Vector, Database> {
 
     //region CLASS PROPERTIES
     protected val gson: Gson = GsonBuilder().create()
-    protected val cities: MutableList<City> = mutableListOf()
-    protected var isCitiesLoaded: Boolean = false
+    protected val vectors: MutableList<Vector> = mutableListOf()
+    protected var isVectorsLoaded: Boolean = false
     //endregion
 
 
     //region PUBLIC FUNCTIONS
     /**
-     * Returns a list of [City] with the size of [take].
+     * Returns a list of [Vector] with the size of [take].
      *
      * @param [take] The count of the elements in the return list. If 0 or nothing is passed,
-     *  returns the entire list of cities acquired with [loadCities].
+     *  returns the entire list of cities acquired with [loadVectors].
      */
-    fun getCities(take: Int = 0): List<City> {
+    fun getVectors(take: Int = 0): List<Vector> {
         return if (take < 1)
-            cities
+            vectors
         else
-            cities.take(take)
+            vectors.take(take)
     }
     //endregion
 
 
     //region PROTECTED FUNCTIONS
     /**
-     * Loads [Assets.TOWNS] and parses them to a list of [City].
+     * Loads [Assets.VECTORS] and parses them to a list of [Vector].
      *
      * @param context [Context].
      *
-     * @throws ClassCastException if the specified type [CityList] does not match the [cities] type.
+     * @throws ClassCastException if the specified type [VectorList] does not match the [vectors] type.
      */
-    protected inline fun <reified CityList> loadCitiesData(context: Context) {
-        if (isCitiesLoaded) return
+    protected inline fun <reified VectorList> loadVectorsData(context: Context) {
+        if (isVectorsLoaded) return
 
-        if (cities !is CityList)
+        if (vectors !is VectorList)
             throw ClassCastException(
                 "The specified type is not correct. Should be the list of " +
-                        "related cities."
+                        "related vectors."
             )
 
         val fileReader: Reader = BufferedReader(
-            InputStreamReader(context.assets.open(Assets.TOWNS))
+            InputStreamReader(context.assets.open(Assets.VECTORS))
         )
 
         @Suppress("UNCHECKED_CAST")
-        cities.addAll(
-            gson.fromJson<CityList>(
+        vectors.addAll(
+            gson.fromJson<VectorList>(
                 fileReader,
-                object : TypeToken<CityList>() {}.type
-            ) as List<City>
+                object : TypeToken<VectorList>() {}.type
+            ) as List<Vector>
         )
 
-        isCitiesLoaded = true
+        isVectorsLoaded = true
 
         fileReader.close()
     }
@@ -89,9 +89,9 @@ abstract class BaseHelpers<City, Database> {
     abstract fun buildDb(context: Context): Database
 
     /**
-     * Use this function to load cities via [loadCitiesData].
+     * Use this function to load cities via [loadVectorsData].
      */
-    abstract fun loadCities(context: Context)
+    abstract fun loadVectors(context: Context)
     //endregion
 
 
@@ -100,30 +100,30 @@ abstract class BaseHelpers<City, Database> {
      * Use this function to inserts the given list of cities to the database.
      *
      * @param db [Database] created via [buildDb]
-     * @param cities List of [City] to save.
+     * @param vectors List of [Vector] to save.
      */
-    abstract fun insertCities(db: Database, cities: List<City>)
+    abstract fun insertVectors(db: Database, vectors: List<Vector>)
 
     /**
-     * Use this function to read the cities from the database and return a list of [City].
+     * Use this function to read the cities from the database and return a list of [Vector].
      *
      * @param db [Database] created via [buildDb]
      */
-    abstract fun readCities(db: Database): List<City>
+    abstract fun readVectors(db: Database): List<Vector>
 
     /**
      * Use this function to updates the database with the given list of cities.
      *
      * @param db [Database] created via [buildDb]
-     * @param cities List of [City] to update the database.
+     * @param vectors List of [Vector] to update the database.
      */
-    abstract fun updateCities(db: Database, cities: List<City>)
+    abstract fun updateVectors(db: Database, vectors: List<Vector>)
 
     /**
-     * Deletes all the rows from the [City] related database table.
+     * Deletes all the rows from the [Vector] related database table.
      *
      * @param db [Database] created via [buildDb]
      */
-    abstract fun deleteCities(db: Database)
+    abstract fun deleteVectors(db: Database)
     //endregion
 }

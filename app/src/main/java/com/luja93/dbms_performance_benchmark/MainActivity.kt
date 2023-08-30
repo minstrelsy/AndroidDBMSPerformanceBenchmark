@@ -3,7 +3,10 @@ package com.luja93.dbms_performance_benchmark
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import com.luja93.dbms_performance_benchmark.room.RoomHelpers
+import java.util.Arrays
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,33 +32,39 @@ class MainActivity : AppCompatActivity() {
         val db = helpers.buildDb(this)
         val buildTime = System.currentTimeMillis()
 
-        helpers.loadCities(this)
-        val cities = helpers.getCities(10000)
+        helpers.loadVectors(this)
+        val cities = helpers.getVectors(10000)
 
         val createTime = System.currentTimeMillis();
         Log.d(TAG, "Create time: " + (buildTime - startTime).toString())
 
-        helpers.deleteCities(db)
-        helpers.insertCities(db, cities)
+        helpers.deleteVectors(db)
+        helpers.insertVectors(db, cities)
 
         val insertTime = System.currentTimeMillis();
         Log.d(TAG, "Insert time: " + (insertTime - createTime).toString())
 
-        val citiesFromDb = helpers.readCities(db)
+        val citiesFromDb = helpers.readVectors(db)
 
         val readTime = System.currentTimeMillis();
         Log.d(TAG, "Read time: " + (readTime - insertTime).toString())
 
         val citiesUpdated = cities.map { it.name = it.name + "_updated"; it }
-        helpers.updateCities(db, citiesUpdated)
+        helpers.updateVectors(db, citiesUpdated)
 
         val updateTime = System.currentTimeMillis();
         Log.d(TAG, "Update time: " + (updateTime - readTime).toString())
 
-        helpers.deleteCities(db)
+        helpers.deleteVectors(db)
 
         val deleteTime = System.currentTimeMillis();
         Log.d(TAG, "Delete time: " + (deleteTime - updateTime).toString())
+
+        val gson = Gson()
+        val floatList = Arrays.asList(1.0f, 2.0f, 3.0f)
+        val jsonOutput = gson.toJson(floatList)
+
+        Log.d(TAG, "json output - " + jsonOutput)
     }
 
     companion object {

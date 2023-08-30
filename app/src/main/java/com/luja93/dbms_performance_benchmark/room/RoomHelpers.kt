@@ -17,7 +17,7 @@ import com.luja93.dbms_performance_benchmark.BaseHelpers
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-object RoomHelpers : BaseHelpers<City_Room, RoomDB>() {
+object RoomHelpers : BaseHelpers<Vector_Room, RoomDB>() {
 
     //region SETUP
     override fun buildDb(context: Context): RoomDB {
@@ -26,27 +26,27 @@ object RoomHelpers : BaseHelpers<City_Room, RoomDB>() {
             .build()
     }
 
-    override fun loadCities(context: Context) {
-        loadCitiesData<List<City_Room>>(context)
+    override fun loadVectors(context: Context) {
+        loadVectorsData<List<Vector_Room>>(context)
     }
     //endregion
 
 
     //region BENCHMARK HELPERS
-    override fun insertCities(db: RoomDB, cities: List<City_Room>) {
-        db.cityDao().insertCities(cities)
+    override fun insertVectors(db: RoomDB, vectors: List<Vector_Room>) {
+        db.vectorDao().insertVectors(vectors)
     }
 
-    override fun readCities(db: RoomDB): List<City_Room> {
-        return db.cityDao().readCities()
+    override fun readVectors(db: RoomDB): List<Vector_Room> {
+        return db.vectorDao().readVectors()
     }
 
-    override fun updateCities(db: RoomDB, cities: List<City_Room>) {
-        db.cityDao().updateCities(cities)
+    override fun updateVectors(db: RoomDB, vectors: List<Vector_Room>) {
+        db.vectorDao().updateVectors(vectors)
     }
 
-    override fun deleteCities(db: RoomDB) {
-        db.cityDao().deleteCities()
+    override fun deleteVectors(db: RoomDB) {
+        db.vectorDao().deleteVectors()
     }
     //endregion
 }

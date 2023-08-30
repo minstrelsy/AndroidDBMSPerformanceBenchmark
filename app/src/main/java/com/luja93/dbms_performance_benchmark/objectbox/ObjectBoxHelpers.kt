@@ -17,7 +17,7 @@ import io.objectbox.BoxStore
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-object ObjectBoxHelpers : BaseHelpers<City_ObjectBox, BoxStore>() {
+object ObjectBoxHelpers : BaseHelpers<Vector_ObjectBox, BoxStore>() {
 
     //region SETUP
     override fun buildDb(context: Context): BoxStore {
@@ -26,27 +26,27 @@ object ObjectBoxHelpers : BaseHelpers<City_ObjectBox, BoxStore>() {
         return ObjectBoxDB.boxStore
     }
 
-    override fun loadCities(context: Context) {
-        loadCitiesData<List<City_ObjectBox>>(context)
+    override fun loadVectors(context: Context) {
+        loadVectorsData<List<Vector_ObjectBox>>(context)
     }
     //endregion
 
 
     //region BENCHMARK HELPERS
-    override fun insertCities(db: BoxStore, cities: List<City_ObjectBox>) {
-        db.boxFor(City_ObjectBox::class.java).put(cities)
+    override fun insertVectors(db: BoxStore, vectors: List<Vector_ObjectBox>) {
+        db.boxFor(Vector_ObjectBox::class.java).put(vectors)
     }
 
-    override fun readCities(db: BoxStore): List<City_ObjectBox> {
-        return db.boxFor(City_ObjectBox::class.java).all
+    override fun readVectors(db: BoxStore): List<Vector_ObjectBox> {
+        return db.boxFor(Vector_ObjectBox::class.java).all
     }
 
-    override fun updateCities(db: BoxStore, cities: List<City_ObjectBox>) {
-        db.boxFor(City_ObjectBox::class.java).put(cities)
+    override fun updateVectors(db: BoxStore, vectors: List<Vector_ObjectBox>) {
+        db.boxFor(Vector_ObjectBox::class.java).put(vectors)
     }
 
-    override fun deleteCities(db: BoxStore) {
-        db.boxFor(City_ObjectBox::class.java).removeAll()
+    override fun deleteVectors(db: BoxStore) {
+        db.boxFor(Vector_ObjectBox::class.java).removeAll()
     }
     //endregion
 }

@@ -3,7 +3,7 @@ package com.luja93.dbms_performance_benchmark.room
 import androidx.room.*
 
 /**
- * \brief [City_Room] data access object.
+ * \brief [Vector_Room] data access object.
  * \details
  *
  * @author  Luka Leopoldović
@@ -16,18 +16,18 @@ import androidx.room.*
  *     particular purpose.
  */
 @Dao
-interface CityDao {
+interface VectorDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCities(cities: List<City_Room>)
+    fun insertVectors(vectors: List<Vector_Room>)
 
-    @Query("SELECT * FROM City_Room")
-    fun readCities(): List<City_Room>
+    @Query("SELECT * FROM Vector_Room")
+    fun readVectors(): List<Vector_Room>
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateCities(cities: List<City_Room>)
+    fun updateVectors(vectors: List<Vector_Room>)
 
-    @Query("DELETE FROM City_Room")
-    fun deleteCities()
+    @Query("DELETE FROM Vector_Room")
+    fun deleteVectors()
 
 }

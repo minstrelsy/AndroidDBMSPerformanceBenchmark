@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName
  *     particular purpose.
  */
 @Entity
-data class City_Room(
+data class Vector_Room(
     @PrimaryKey
     @SerializedName("id")
     val id: Long,

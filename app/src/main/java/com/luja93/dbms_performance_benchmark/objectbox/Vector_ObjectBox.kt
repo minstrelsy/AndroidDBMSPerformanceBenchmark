@@ -18,7 +18,7 @@ import io.objectbox.annotation.Id
  *     particular purpose.
  */
 @Entity
-data class City_ObjectBox(
+data class Vector_ObjectBox(
     @Id(assignable = true)
     @SerializedName("id")
     var id: Long = 0L,

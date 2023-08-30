@@ -17,7 +17,7 @@ import io.realm.annotations.PrimaryKey
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-open class City_Realm : RealmObject {
+open class Vector_Realm : RealmObject {
 
     @PrimaryKey
     @SerializedName("id")

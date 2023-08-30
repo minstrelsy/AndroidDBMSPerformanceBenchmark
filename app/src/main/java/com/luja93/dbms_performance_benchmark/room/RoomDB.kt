@@ -18,10 +18,10 @@ import androidx.room.RoomDatabase
  */
 @Database(
     version = 1,
-    entities = [City_Room::class]
+    entities = [Vector_Room::class]
 )
 abstract class RoomDB : RoomDatabase() {
 
-    abstract fun cityDao(): CityDao
+    abstract fun vectorDao(): VectorDao
 
 }

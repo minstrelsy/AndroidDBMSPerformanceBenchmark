@@ -17,7 +17,7 @@ import io.realm.Realm
  *     the implied warranties of merchantability and/or fitness for a
  *     particular purpose.
  */
-object RealmHelpers : BaseHelpers<City_Realm, Realm>() {
+object RealmHelpers : BaseHelpers<Vector_Realm, Realm>() {
 
     //region SETUP
     override fun buildDb(context: Context): Realm {
@@ -26,32 +26,32 @@ object RealmHelpers : BaseHelpers<City_Realm, Realm>() {
         return Realm.getDefaultInstance()
     }
 
-    override fun loadCities(context: Context) {
-        loadCitiesData<List<City_Realm>>(context)
+    override fun loadVectors(context: Context) {
+        loadVectorsData<List<Vector_Realm>>(context)
     }
     //endregion
 
 
     //region BENCHMARK HELPERS
-    override fun insertCities(db: Realm, cities: List<City_Realm>) {
+    override fun insertVectors(db: Realm, vectors: List<Vector_Realm>) {
         db.beginTransaction()
-        db.insert(cities)
+        db.insert(vectors)
         db.commitTransaction()
     }
 
-    override fun readCities(db: Realm): List<City_Realm> {
-        return db.where(City_Realm::class.java).findAll()
+    override fun readVectors(db: Realm): List<Vector_Realm> {
+        return db.where(Vector_Realm::class.java).findAll()
     }
 
-    override fun updateCities(db: Realm, cities: List<City_Realm>) {
+    override fun updateVectors(db: Realm, vectors: List<Vector_Realm>) {
         db.beginTransaction()
-        db.insertOrUpdate(cities)
+        db.insertOrUpdate(vectors)
         db.commitTransaction()
     }
 
-    override fun deleteCities(db: Realm) {
+    override fun deleteVectors(db: Realm) {
         db.beginTransaction()
-        db.delete(City_Realm::class.java)
+        db.delete(Vector_Realm::class.java)
         db.commitTransaction()
     }
     //endregion
