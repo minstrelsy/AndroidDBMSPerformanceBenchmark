@@ -5,7 +5,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.luja93.dbms_performance_benchmark.room.RoomHelpers
-import java.util.Arrays
+import java.io.File
+import java.io.FileOutputStream
 import java.util.Random
 
 
@@ -61,10 +62,18 @@ class MainActivity : AppCompatActivity() {
         val deleteTime = System.currentTimeMillis();
         Log.d(TAG, "Delete time: " + (deleteTime - updateTime).toString())
 
+        createSampleData()
+    }
+
+    fun createSampleData() {
         val gson = Gson()
         val random = Random()
 
-        for (i in 1..10) {
+        val dataFilePath = "/sdcard/Download/data.json"
+        val dataFile = File(dataFilePath)
+        val fos = FileOutputStream(dataFile)
+
+        for (i in 1..20000) {
             val vector = Vector ()
             vector.name = i.toString()
             for (v in 1..512) {
@@ -72,8 +81,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             val output = gson.toJson(vector)
-            Log.d(TAG, "output $i - $output")
+
+            fos.write(output.toByteArray())
+            fos.write("\n".toByteArray())
         }
+
+        fos.flush()
+        fos.close()
     }
 
     companion object {
